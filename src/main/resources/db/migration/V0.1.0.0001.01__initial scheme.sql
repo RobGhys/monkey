@@ -6,3 +6,6 @@ CREATE TABLE bucket_list
     "name"                                      text,
     "description"                        text
 );
+
+INSERT INTO bucket_list (name, description)
+VALUES ('Rob', 'haha'), ('Caro', 'hoho');
