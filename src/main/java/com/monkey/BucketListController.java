@@ -30,7 +30,14 @@ public class BucketListController {
 
     @PostMapping(value = "/")
     public ResponseEntity addToBucketList(@RequestParam(value="name") String name, @RequestParam(value="description") String desc) {
-        return ResponseEntity.ok(bucketRepository.save(new BucketList(name, desc)));
+        BucketList bucketList = BucketList.builder()
+                .name(name)
+                .description(desc)
+                .build();
+
+        System.out.println("Created stuff");
+
+        return ResponseEntity.ok(bucketRepository.save(bucketList));
     }
 
     @PutMapping(value = "/")

@@ -1,59 +1,27 @@
 package com.monkey;
 
+import lombok.*;
+
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
+@Table(name = "bucket_list")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class BucketList {
 
     @Id
-    @Column(name = "id", unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue
+    @Column(name = "id",updatable = false)
+    @EqualsAndHashCode.Exclude @ToString.Exclude
+    private UUID id;
 
-    @Column(name = "name", length = 60, nullable = false)
     private String name;
 
-    @Column
     private  String description;
-
-    BucketList() {
-
-    }
-
-    BucketList(String name, String description){
-        this.name = name;
-        this.description = description;
-    }
-
-    BucketList(long id, String name, String description){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
     public String toString() {
