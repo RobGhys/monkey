@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    username: my-lord
+    password: password
+    url: jdbc:postgresql://localhost:5432/db_ibl_cross_team_infra
+    driver-class-name: org.postgresql.Driver
+
